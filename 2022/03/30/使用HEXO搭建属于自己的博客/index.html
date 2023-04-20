@@ -9,7 +9,7 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://47.115.224.125/favicon.svg" type="image/x-icon" />
     <meta name="description" content="Hexo的初步使用什么是Hexo​    Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单易上手，免去了自己搭建网站的烦恼，这也是我为什么决定采用HEXO来搭建自己博客的原因。  HEXO的使用以及安装安装前提安装 Hexo 相当简单，只需要先安装下列应用程序即可：  Node.js (Node.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用HEXO搭建属于自己的博客">
@@ -33,13 +33,13 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1681896511818">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1681978155030">
     
-    <link rel="stylesheet" href="/css/style.css?v=1681896511818">
+    <link rel="stylesheet" href="/css/style.css?v=1681978155030">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1681896511818">
+            <link rel="stylesheet" href="/custom.css?v=1681978155030">
         
     
 
@@ -48,7 +48,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1681896511818"></script>
+    <script async src="/js/app.js?v=1681978155030"></script>
     
      
 
@@ -67,14 +67,14 @@
 <body class="mdui-drawer-body-left">
     <div id="nexmoe-background">
         <div class="nexmoe-bg" 
-            style="background-image: url(/source/images/background.jpg)"
+            style="background-image: url(http://47.115.224.125/background.jpg)"
         ></div>
         <div class="mdui-appbar mdui-shadow-0">
             <div class="mdui-toolbar">
                 <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
                 <div class="mdui-toolbar-spacer"></div>
                 <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="/" title="Jackie" class="mdui-btn mdui-btn-icon"><img src="/source/images/avatar.jpg" alt="Jackie"></a>
+                <a href="/" title="Jackie" class="mdui-btn mdui-btn-icon"><img src="http://47.115.224.125/avatar.jpg" alt="Jackie"></a>
             </div>
         </div>
     </div>
@@ -82,7 +82,7 @@
         <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="Jackie">
-            <img src="/source/images/avatar.jpg" alt="Jackie" alt="Jackie">
+            <img src="http://47.115.224.125/avatar.jpg" alt="Jackie" alt="Jackie">
         </a>
     </div>
     <div class="nexmoe-count">
@@ -236,6 +236,48 @@
 
         
             
+            <!-- 一言 -->
+<div class="nexmoe-widget-wrap">
+  <h3 class="nexmoe-widget-title">
+    一言
+  </h3>
+  <div class="nexmoe-widget">
+    <ul class="hitokoto-box">
+      <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
+        <a href="#" id="hitokoto_text">
+          
+        </a>
+        <a href="#" id="hitokoto_error_text" style="display: none;">
+          
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let hitokotoText = document.getElementById('hitokoto_text')
+  let hitokotoErroText = document.getElementById('hitokoto_error_text')
+  let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
+  window.addEventListener('load', function () {
+    let url = 'https://v1.hitokoto.cn'
+    if (hitokotoCategory) {
+      url += '?c=' + hitokotoCategory
+    }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
+        hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      })
+      .catch((reason) => {
+        console.error(11, reason)
+        hitokotoText.style.display = 'none'
+        hitokotoErroText.style.display = 'block'
+      })
+  })
+</script>
+        
             
             
   <div class="nexmoe-widget-wrap">
@@ -277,20 +319,6 @@
     <div class="nexmoe-widget nexmoe-link">
 		<ul>
         
-            <li>
-                <a href="https://xiaoshu.app/" target="_blank" >
-                    <img src="https://xsm.nexmoe.com/images/Infinite/Snipaste_2022-05-18_20-46-50.png" alt="小舒同学"></img>
-                    <p>小舒同学</p>
-                </a>
-            </li>
-        
-            <li>
-                <a href="https://nexmoe.com/" target="_blank" >
-                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="折影轻梦"></img>
-                    <p>折影轻梦</p>
-                </a>
-            </li>
-        
 		</ul>
     </div>
 </div>
@@ -323,7 +351,7 @@
   <article>
     
         <div class="nexmoe-post-cover"> 
-            <img src="/source/images/background.jpg" alt="使用HEXO搭建属于自己的博客" loading="lazy">
+            <img src="http://47.115.224.125/background.jpg" alt="使用HEXO搭建属于自己的博客" loading="lazy">
             <h1>使用HEXO搭建属于自己的博客</h1>
         </div>
     
@@ -411,7 +439,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1681896511794"></script>
+    <script async src="/js/copy-codeblock.js?v=1681978155009"></script>
   
 
   
